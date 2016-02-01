@@ -895,9 +895,9 @@ Back,menu.txt</pre>
       <td>Reloads SaitoHUD.</td>
     </tr>
   </table>
-  
+
   <div id="footer">
-  	<span id="footer-id">$Id: docs.html 156 2010-06-18 22:35:16Z the.sk89q $</span>
+  	<span id="footer-id">$Id: docs.txt GIT 2016-02-01 18:49:02Z the.sk89q $</span>
     &copy; sk89q, BoJaN.
   </div>
 </div>
