@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: friends.lua GIT 2016-02-01 21:36:40Z hexahedronic $
+-- $Id: friends.lua GIT 2016-02-01 hexahedronic $
 
 local useSteamFriends = CreateClientConVar("friends_use_steam", "1", true, false)
 local friendColor = CreateClientConVar("friend_color", "255,255,0", true, false)

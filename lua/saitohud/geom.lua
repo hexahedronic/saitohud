@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: geom.lua GIT 2016-02-01 22:05:40Z hexahedronic $
+-- $Id: geom.lua GIT 2016-02-01 hexahedronic $
 
 local subclassVector = CreateClientConVar("geom_subclass_vector", "0", true, false)
 

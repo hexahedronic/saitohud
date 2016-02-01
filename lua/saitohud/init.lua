@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: init.lua GIT 2016-02-01 20:52:22Z hexahedronic $
+-- $Id: init.lua GIT 2016-02-01 hexahedronic $
 
 local moduleLoadList = {
 	"util",
@@ -66,7 +66,7 @@ end
 local function RemoveExistingHooks()
 	for name, list in pairs(hook.GetTable()) do
 		for k, f in pairs(list) do
-			if k:match("^SaitoHUD") then
+			if isstring(k) and k:match("^SaitoHUD") then
 				list[k] = nil
 			end
 		end

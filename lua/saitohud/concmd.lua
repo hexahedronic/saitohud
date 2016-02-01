@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: concmd.lua GIT 2016-02-01 21:30:09Z hexahedronic $
+-- $Id: concmd.lua GIT 2016-02-01 hexahedronic $
 
 --- Remove the empty (string) entries from a table. This modifies the table
 -- in-place and returns it for convenience.

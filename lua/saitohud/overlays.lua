@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: overlays.lua GIT 2016-02-01 21:54:24Z hexahedronic $
+-- $Id: overlays.lua GIT 2016-02-01 hexahedronic $
 
 local excludeClasses = {
 	viewmodel = true,

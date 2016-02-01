@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: saitohud.lua GIT 2016-02-01 20:53:02Z hexahedronic $
+-- $Id: saitohud.lua GIT 2016-02-01 hexahedronic $
 
 local ignoreHooks = CreateClientConVar("saitohud_ignore_hooks", "0", false, false)
 
@@ -209,6 +209,6 @@ concommand.Add("saitohud_help", SaitoHUD.OpenHelp)
 
 --- We store it now so that players can't disable it mid-game -- that's not enough
 -- of a deterrent. However, if people wish to disable the feature, they can.
-if __SaitoHUDUnfair == nil and not file.Exists("saitohud/no_deterrent.lck") then
+if __SaitoHUDUnfair == nil and not file.Exists("saitohud/no_deterrent.lck", "DATA") then
 	__SaitoHUDUnfair = true
 end

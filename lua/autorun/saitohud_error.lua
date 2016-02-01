@@ -14,12 +14,12 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: saitohud_error.lua GIT 2016-02-01 21:49:50Z hexahedronic $
+-- $Id: saitohud_error.lua GIT 2016-02-01 hexahedronic $
 
 local errors = {}
 
 local function errorCallback(err)
-	if errors[err] = true then return end
+	if errors[err] == true then return end
 
 	ErrorNoHalt("[ERROR] SaitoHUD Encountered the following error at RunTime:\n")
 		print("\t" .. err)
@@ -43,6 +43,7 @@ local function errorCallback(err)
 
 	if SaitoHUD and SaitoHUD.AntiUnfairTriggered then
 		print("\n--[[AUT: " .. tostring(SaitoHUD.AntiUnfairTriggered()) .. "]]")
+	end
 
 	print("\n--END ERROR INFORMATION DUMP--")
 
@@ -50,7 +51,11 @@ local function errorCallback(err)
 end
 
 function saitohud_errorhandle(func, ...)
-	local details = {xpcall(function() func(...) end, errorCallback)}
+	-- Can't pass varargs through apparently
+	local args = {...}
+	local f = function() func(unpack(args)) end
+
+	local details = {xpcall(f, errorCallback)}
 	local passed 	= details[1]
 
 	table.remove(details, 1)
