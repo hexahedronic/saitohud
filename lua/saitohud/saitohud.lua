@@ -8,7 +8,7 @@
 -- (at your option) any later version.
 --
 -- This program is distributed in the hope that it will be useful,
--- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- but WITHOUT ANY WARRANTY without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
 --
@@ -90,7 +90,8 @@ function SaitoHUD.GetEntityInfoLines(showPlayerInfo, showEntityInfo)
 	local ent = tr.Entity
 
 	if IsValid(ent) then
-		local r, g, b, a = ent:GetColor();
+		local col = ent:GetColor()
+		local r, g, b, a = col.r, col.g, col.b, col.a
 		lines = {}
 
 		if showEntityInfo then
@@ -101,7 +102,7 @@ function SaitoHUD.GetEntityInfoLines(showPlayerInfo, showEntityInfo)
 				"Hit Pos: " .. tostring(tr.HitPos),
 				"Class: " .. tostring(ent:GetClass()),
 				"Position: " .. tostring(ent:GetPos()),
-				"Size: " .. tostring(ent:OBBMaxs()-ent:OBBMins()),
+				"Size: " .. tostring(ent:OBBMaxs() - ent:OBBMins()),
 				"Angle: " .. tostring(ent:GetAngles()),
 				"Color: " .. string.format("%0.2f %.2f %.2f %.2f", r, g, b, a),
 				"Model: " .. tostring(ent:GetModel()),
@@ -163,7 +164,7 @@ end
 function SaitoHUD.ShowHint(msg, t, c)
 	if not t then t = 10 end
 	if not c then c = NOTIFY_GENERIC end
-	GAMEMODE:AddNotify(msg, c, t);
+	GAMEMODE:AddNotify(msg, c, t)
 	surface.PlaySound("ambient/water/drip" .. math.random(1, 4) .. ".wav")
 end
 
