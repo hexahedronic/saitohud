@@ -14,7 +14,10 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: saitohud_init.lua GIT 2016-02-01 19:55:21Z hexahedronic $
+-- $Id: saitohud_init.lua GIT 2016-02-01 22:07:11Z hexahedronic $
+
+-- Incase of manual loading
+include("autorun/saitohud_error.lua")
 
 -- Debugging function
 concommand.Add("saitohud_reload", function()
