@@ -1,6 +1,7 @@
 SaitoHUD
 
 Copyright (c) 2009-2010 sk89q <http://www.sk89q.com>
+Copyright (c) 2016 Hexahedronic <http://www.hexahedronic.org>
 Licensed under the GNU Lesser General Public License v2
 
 Introduction

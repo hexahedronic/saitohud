@@ -897,7 +897,7 @@ Back,menu.txt</pre>
   </table>
 
   <div id="footer">
-  	<span id="footer-id">$Id: docs.txt GIT 2016-02-01 18:49:02Z the.sk89q $</span>
+  	<span id="footer-id">$Id: docs.txt GIT 2016-02-01 18:56:33Z hexahedronic $</span>
     &copy; sk89q, BoJaN.
   </div>
 </div>
