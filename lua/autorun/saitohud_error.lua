@@ -14,9 +14,13 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: saitohud_error.lua GIT 2016-02-01 18:54:11Z hexahedronic $
+-- $Id: saitohud_error.lua GIT 2016-02-01 21:49:50Z hexahedronic $
+
+local errors = {}
 
 local function errorCallback(err)
+	if errors[err] = true then return end
+
 	ErrorNoHalt("[ERROR] SaitoHUD Encountered the following error at RunTime:\n")
 		print("\t" .. err)
 
@@ -42,10 +46,11 @@ local function errorCallback(err)
 
 	print("\n--END ERROR INFORMATION DUMP--")
 
+	errors[err] = true
 end
 
-function saitohud_errorhandle(func)
-	local details = {xpcall(func, errorCallback)}
+function saitohud_errorhandle(func, ...)
+	local details = {xpcall(function() func(...) end, errorCallback)}
 	local passed 	= details[1]
 
 	table.remove(details, 1)
