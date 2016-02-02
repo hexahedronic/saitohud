@@ -18,7 +18,7 @@
 -- $Id: spectate.lua GIT 2016-02-01 hexahedronic $
 
 local spectateLock = CreateClientConVar("free_spectate_lock", "1", true, false)
-local spectateRate = CreateClientConVar("free_spectateRegistryate", "1000", true, false)
+local spectateRate = CreateClientConVar("free_spectate_rate", "1000", true, false)
 local spectateSlowFactor = CreateClientConVar("free_spectate_slow_factor", "4", true, false)
 local spectateNotice = CreateClientConVar("free_spectate_notice", "1", true, false)
 
