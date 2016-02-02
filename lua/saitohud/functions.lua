@@ -63,7 +63,7 @@ function SaitoHUD.HookOnCvar(name, id, hooks, checkAUT)
 			end
 		else
 			for h, f in pairs(hooks) do
-				pcall(hook.Remove, h, id)
+				saitohud_errorhandle(hook.Remove, h, id)
 			end
 		end
 	end
@@ -92,7 +92,7 @@ function SaitoHUD.HookIfTrue(enabled, id, hooks, checkAUT)
 		end
 	else
 		for h, f in pairs(hooks) do
-			pcall(hook.Remove, h, id)
+			saitohud_errorhandle(hook.Remove, h, id)
 		end
 	end
 end
