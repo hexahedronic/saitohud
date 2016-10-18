@@ -15,7 +15,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
--- $Id: player_tags.lua GIT 2016-02-02 hexahedronic $
+-- $Id: player_tags.lua GIT 2016-10-18 hexahedronic $
 
 ------------------------------------------------------------
 -- Name tags
@@ -27,12 +27,26 @@ local simpleNameTags = CreateClientConVar("name_tags_simple", "1", true, false)
 local rainbowFriends = CreateClientConVar("name_tags_rainbow_friends", "0", true, false)
 local boldFriends = CreateClientConVar("name_tags_bold_friends", "1", true, false)
 local playerDistances = CreateClientConVar("name_tags_distances", "1", true, false)
+local distancesUnits = CreateClientConVar("name_tags_distances_units", "u", true, false)
+
+local function DistanceString(distance, unit)
+	local unit = unit:lower()
+	
+	if unit == "ft" then
+		return math.floor(distance * 0.0625) .. "ft"
+	elseif unit == "m" then
+		return math.floor(distance * 0.01905) .. "m"
+	end
+	
+	return distance .. "u"
+end
 
 local function NameTagsPaint()
 	local refPos = SaitoHUD.GetRefPos()
 	local all = drawNameTags:GetBool()
 	local alwaysFriends = alwaysDrawFriendTags:GetBool()
 	local showDistances = playerDistances:GetBool()
+	local distUnits = distancesUnits:GetString()
 	local simpleTags = simpleNameTags:GetBool()
 	local boldFriends = boldFriends:GetBool()
 	local rainbow = rainbowFriends:GetBool()
@@ -59,7 +73,7 @@ local function NameTagsPaint()
 			-- Distances
 			local text = name
 			if showDistances then
-				text = text .. " [" .. tostring(distance) .. "]"
+				text = text .. " [" .. DistanceString(distance, distUnits) .. "]"
 			end
 
 			if simpleTags then
