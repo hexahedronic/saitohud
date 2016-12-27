@@ -55,7 +55,7 @@ local function StartListening()
 			if peekWire:GetBool() and name == "wire_umsg" then
 				local entIndex = msg:ReadShort()
 				local ent = ents.GetByIndex(entIndex)
-				logName = name .. ":" .. (ValidEntity(ent) and tostring(ent) or "?")
+				logName = name .. ":" .. (IsValid(ent) and tostring(ent) or "?")
 
 				-- Does not appear to work!
 				msg:Reset()
@@ -72,7 +72,7 @@ local function StartListening()
 					local value = decodedData[3]
 					local key = decodedData[2]
 
-					logName = name .. ":" .. (ValidEntity(ent) and tostring(ent) or "?") .. ":" .. key
+					logName = name .. ":" .. (IsValid(ent) and tostring(ent) or "?") .. ":" .. key
 				end
 			end
 
