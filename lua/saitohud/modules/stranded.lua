@@ -162,7 +162,7 @@ local function HandleKey(ply, key)
             data.filter = ply
             
             local tr = util.TraceLine(data)
-            if tr.Hit and ValidEntity(tr.Entity) then
+            if tr.Hit and IsValid(tr.Entity) then
                 if tr.Entity:GetClass() == "gms_resourcedrop" and tr.Entity.Res then    
                     local id = tr.Entity.Res:gsub(" ", "_")
                     if Resources[id] then
@@ -218,7 +218,7 @@ local function StrandedMenu(numHooks)
     
     -- Take resources
     local tr = util.TraceLine(data)
-    if tr.Hit and ValidEntity(tr.Entity) then 
+    if tr.Hit and IsValid(tr.Entity) then 
         if ply:GetPos():Distance(tr.Entity:LocalToWorld(tr.Entity:OBBCenter())) < 65 and 
             tr.Entity:GetClass() == "gms_resourcedrop" and tr.Entity.Res then
             local name = tr.Entity.Res:gsub("_", " ")
