@@ -123,7 +123,7 @@ local function ReflectAnalysisEntity(ply, cmd, args)
     
     local tr = SaitoHUD.GetRefTrace()
     
-    if ValidEntity(tr.Entity) then
+    if IsValid(tr.Entity) then
         if not reflectTraceMultiple:GetBool() then reflectionLines = {} end
         
         worldAng = tr.Entity:LocalToWorldAngles(ang)
@@ -180,20 +180,20 @@ local function DrawOrthoTraceText()
 		local dist = math.Round(v[1]:Distance(v[2]))
         local screenPos = v[1]:ToScreen()
         draw.SimpleText(tostring(v[1]),
-                        "DefaultSmallDropShadow", screenPos.x, screenPos.y,
+                        "Default", screenPos.x, screenPos.y,
                         Color(255, 255, 255, 255), 1, ALIGN_TOP)
                         
         draw.SimpleText(tostring(dist),
-                        "DefaultSmallDropShadow", screenPos.x, screenPos.y+10,
+                        "Default", screenPos.x, screenPos.y+10,
                         Color(255, 255, 255, 255), 1, ALIGN_TOP)
         
         local screenPos = v[2]:ToScreen()
         draw.SimpleText(tostring(v[2]),
-                        "DefaultSmallDropShadow", screenPos.x, screenPos.y,
+                        "Default", screenPos.x, screenPos.y,
                         Color(255, 255, 255, 255), 1, ALIGN_TOP)
                         
         draw.SimpleText(tostring(dist),
-                        "DefaultSmallDropShadow", screenPos.x, screenPos.y+10,
+                        "Default", screenPos.x, screenPos.y+10,
                         Color(255, 255, 255, 255), 1, ALIGN_TOP)
     end
 end
@@ -205,7 +205,7 @@ local function DrawReflectAnalysisText()
     surface.SetDrawColor(255, 255, 0, 255)
     
     for _, data in pairs(reflectionLines) do
-        if data.Live and ValidEntity(data.Entity) then
+        if data.Live and IsValid(data.Entity) then
             worldAng = data.Entity:LocalToWorldAngles(data.Ang)
             
             data.Lines = CalculateReflectionAnalysis(
